@@ -3,6 +3,7 @@ import { startOfHour } from 'date-fns';
 
 import Appointment from '../models/Appointment';
 import AppointmentRepository from '../repositories/AppointmentRepository';
+import AppError from '../errors/AppError';
 
 interface Request {
   provider_id: string;
@@ -19,7 +20,7 @@ class CreateAppointmentService {
     );
 
     if (findAppointmentInSameDate) {
-      throw new Error('This appointment already bocked');
+      throw new AppError('This appointment already bocked');
     }
 
     const appointment = appointmentRepository.create({
