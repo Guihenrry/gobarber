@@ -41,6 +41,7 @@ export const Content = styled.div`
     text-align: center;
 
     h1 {
+      font-size: 2rem;
       margin-bottom: 24px;
 
       @media (max-width: 768px) {

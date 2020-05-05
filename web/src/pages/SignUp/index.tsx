@@ -1,42 +1,70 @@
-import React from 'react';
+import React, { useCallback, useRef } from 'react';
 import { FiArrowLeft, FiMail, FiLock, FiUser } from 'react-icons/fi';
+import { Form } from '@unform/web';
+import { FormHandles } from '@unform/core';
+import * as Yup from 'yup';
 
 import logoImg from '../../assets/logo.svg';
-
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import getValidationsErrors from '../../utils/getValidationsErrors';
 
 import { Container, Content, Background, SignWrapper } from './styles';
 
-const SignUp: React.FC = () => (
-  <Container>
-    <Background />
+const SignUp: React.FC = () => {
+  const formRef = useRef<FormHandles>(null);
 
-    <SignWrapper>
-      <Content>
-        <img src={logoImg} alt="GoBarber" />
+  const handleSubmit = useCallback(async (data) => {
+    try {
+      formRef.current?.setErrors({});
 
-        <form>
-          <h1>Faça seu cadastro</h1>
+      const schema = Yup.object().shape({
+        name: Yup.string().required('Nome obrigatorio'),
+        email: Yup.string()
+          .required('E-mail obrigatório')
+          .email('Digite um e-mail valido'),
+        password: Yup.string().min(6, 'No mínimo 6 dígitos'),
+      });
 
-          <Input name="name" icon={FiUser} placeholder="Nome" />
-          <Input name="email" icon={FiMail} placeholder="E-mail" />
-          <Input
-            name="password"
-            icon={FiLock}
-            type="password"
-            placeholder="Senha"
-          />
-          <Button type="submit">Cadastrar</Button>
-        </form>
+      await schema.validate(data, {
+        abortEarly: false,
+      });
+    } catch (error) {
+      const errors = getValidationsErrors(error);
+      formRef.current?.setErrors(errors);
+    }
+  }, []);
 
-        <a href="sda">
-          <FiArrowLeft />
-          Voltar para logon
-        </a>
-      </Content>
-    </SignWrapper>
-  </Container>
-);
+  return (
+    <Container>
+      <Background />
+
+      <SignWrapper>
+        <Content>
+          <img src={logoImg} alt="GoBarber" />
+
+          <Form onSubmit={handleSubmit} ref={formRef}>
+            <h1>Faça seu cadastro</h1>
+
+            <Input name="name" icon={FiUser} placeholder="Nome" />
+            <Input name="email" icon={FiMail} placeholder="E-mail" />
+            <Input
+              name="password"
+              icon={FiLock}
+              type="password"
+              placeholder="Senha"
+            />
+            <Button type="submit">Cadastrar</Button>
+          </Form>
+
+          <a href="sda">
+            <FiArrowLeft />
+            Voltar para logon
+          </a>
+        </Content>
+      </SignWrapper>
+    </Container>
+  );
+};
 
 export default SignUp;
