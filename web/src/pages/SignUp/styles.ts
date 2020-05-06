@@ -1,7 +1,18 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { shade } from 'polished';
 
 import signUpBackgroundImg from '../../assets/sign-up-background.png';
+
+const appearFromRight = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
 
 export const Container = styled.div`
   min-height: 100vh;
@@ -26,9 +37,9 @@ export const SignWrapper = styled.div`
 
 export const Content = styled.div`
   width: 100%;
-
   height: 100%;
   max-height: 620px;
+  animation: ${appearFromRight} 1s;
 
   display: flex;
   flex-direction: column;
