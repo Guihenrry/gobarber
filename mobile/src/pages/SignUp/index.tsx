@@ -15,7 +15,7 @@ import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 
 import getValidationsErrors from '../../utils/getValidationsErrors';
-
+import api from '../../services/api';
 import logoImg from '../../assets/logo.png';
 
 import Input from '../../components/Input';
@@ -59,33 +59,45 @@ const SignUp: React.FC = () => {
     };
   }, [keyboardDidShow, keyboardDidHide]);
 
-  const handleSubmit = useCallback(async (data: SignUpFormData) => {
-    try {
-      formRef.current?.setErrors({});
+  const handleSubmit = useCallback(
+    async (data: SignUpFormData) => {
+      try {
+        formRef.current?.setErrors({});
 
-      const schema = Yup.object().shape({
-        name: Yup.string().required(),
-        email: Yup.string()
-          .required('E-mail obrigatório')
-          .email('Digite um e-mail valido'),
-        password: Yup.string().required('Senha obrigatório'),
-      });
+        const schema = Yup.object().shape({
+          name: Yup.string().required(),
+          email: Yup.string()
+            .required('E-mail obrigatório')
+            .email('Digite um e-mail valido'),
+          password: Yup.string().required('Senha obrigatório'),
+        });
 
-      await schema.validate(data, {
-        abortEarly: false,
-      });
-    } catch (error) {
-      if (error instanceof Yup.ValidationError) {
-        const errors = getValidationsErrors(error);
-        formRef.current?.setErrors(errors);
-      } else {
+        await schema.validate(data, {
+          abortEarly: false,
+        });
+
+        await api.post('users', data);
+
         Alert.alert(
-          'Error no cadastro',
-          'Verifique seus dados e tente novamente',
+          'Cadastro realizado com sucesso',
+          'Você ja pode fazer o login na aplicaçãos',
         );
+
+        navigation.navigate('SignIn');
+      } catch (error) {
+        if (error instanceof Yup.ValidationError) {
+          const errors = getValidationsErrors(error);
+          formRef.current?.setErrors(errors);
+        } else {
+          Alert.alert(
+            'Error no cadastro',
+            'Verifique seus dados e tente novamente',
+          );
+        }
       }
-    }
-  }, []);
+    },
+    [navigation],
+  );
 
   return (
     <>
@@ -143,7 +155,7 @@ const SignUp: React.FC = () => {
                   formRef.current?.submitForm();
                 }}
               >
-                Entar
+                Cadastrar
               </Button>
             </Form>
           </Container>

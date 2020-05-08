@@ -16,6 +16,8 @@ import * as Yup from 'yup';
 
 import getValidationsErrors from '../../utils/getValidationsErrors';
 import logoImg from '../../assets/logo.png';
+
+import { useAuth } from '../../hooks/auth';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
@@ -38,6 +40,7 @@ const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
   const passwordInputRef = useRef<TextInput>(null);
   const [keyboardShow, setKeyboardShow] = useState(false);
+  const { signIn } = useAuth();
 
   const keyboardDidShow = useCallback(() => {
     setKeyboardShow(true);
@@ -56,32 +59,40 @@ const SignIn: React.FC = () => {
     };
   }, [keyboardDidShow, keyboardDidHide]);
 
-  const handleSubmit = useCallback(async (data: SignInFormData) => {
-    try {
-      formRef.current?.setErrors({});
+  const handleSubmit = useCallback(
+    async (data: SignInFormData) => {
+      try {
+        formRef.current?.setErrors({});
 
-      const schema = Yup.object().shape({
-        email: Yup.string()
-          .required('E-mail obrigatório')
-          .email('Digite um e-mail valido'),
-        password: Yup.string().required('Senha obrigatório'),
-      });
+        const schema = Yup.object().shape({
+          email: Yup.string()
+            .required('E-mail obrigatório')
+            .email('Digite um e-mail valido'),
+          password: Yup.string().required('Senha obrigatório'),
+        });
 
-      await schema.validate(data, {
-        abortEarly: false,
-      });
-    } catch (error) {
-      if (error instanceof Yup.ValidationError) {
-        const errors = getValidationsErrors(error);
-        formRef.current?.setErrors(errors);
-      } else {
-        Alert.alert(
-          'Não foi possivel realizar o login',
-          'Verifique suas credenciais e tente novamente',
-        );
+        await schema.validate(data, {
+          abortEarly: false,
+        });
+
+        signIn({
+          email: data.email,
+          password: data.password,
+        });
+      } catch (error) {
+        if (error instanceof Yup.ValidationError) {
+          const errors = getValidationsErrors(error);
+          formRef.current?.setErrors(errors);
+        } else {
+          Alert.alert(
+            'Não foi possivel realizar o login',
+            'Verifique suas credenciais e tente novamente',
+          );
+        }
       }
-    }
-  }, []);
+    },
+    [signIn],
+  );
 
   return (
     <>
