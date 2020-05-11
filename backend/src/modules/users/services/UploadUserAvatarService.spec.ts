@@ -1,4 +1,3 @@
-import 'reflect-metadata';
 import AppError from '@shared/errors/AppError';
 import FakeStorageProvider from '@shared/container/providers/StorageProvider/fakes/FakeStorageProvider';
 import UploadUserAvatarService from './UploadUserAvatarService';
@@ -28,7 +27,7 @@ describe('UploadUser', () => {
     expect(user.avatar).toBe('avatar.jpg');
   });
 
-  it('should not be able update avatar from non existing user', () => {
+  it('should not be able update avatar from non existing user', async () => {
     const fakeStorageProvider = new FakeStorageProvider();
     const fakeUsersRepository = new FakeUsersRepository();
 
@@ -37,7 +36,7 @@ describe('UploadUser', () => {
       fakeStorageProvider,
     );
 
-    expect(
+    await expect(
       uploadUserAvatar.execute({
         user_id: 'non-existing-user',
         avatarFilename: 'avatar.jpg',

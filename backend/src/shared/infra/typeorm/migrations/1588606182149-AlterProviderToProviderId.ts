@@ -25,7 +25,7 @@ export default class AlterProviderToProviderId1588606182149
         name: 'AppoinmentsProvider',
         columnNames: ['provider_id'],
         referencedColumnNames: ['id'],
-        referencedTableName: 'appointments',
+        referencedTableName: 'users',
         onDelete: 'SET NULL',
         onUpdate: 'CASCADE',
       }),
@@ -42,6 +42,7 @@ export default class AlterProviderToProviderId1588606182149
       new TableColumn({
         name: 'provider',
         type: 'varchar',
+        isNullable: true,
       }),
     );
   }
