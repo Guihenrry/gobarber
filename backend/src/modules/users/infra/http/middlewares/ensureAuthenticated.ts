@@ -4,7 +4,7 @@ import { Request, Response, NextFunction } from 'express';
 import AppError from '@shared/errors/AppError';
 import authConfig from '@config/auth';
 
-interface TokenPayload {
+interface ITokenPayload {
   sub: string;
 }
 
@@ -24,7 +24,7 @@ function ensureAuthenticated(
   try {
     const decoded = verify(token, authConfig.jwt.secret);
 
-    const { sub } = decoded as TokenPayload;
+    const { sub } = decoded as ITokenPayload;
 
     request.user = {
       id: sub,
