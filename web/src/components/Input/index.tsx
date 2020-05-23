@@ -45,6 +45,7 @@ const Input: React.FC<InputProps> = ({ name, icon: Icon, ...rest }) => {
       {Icon && <Icon size={20} />}
 
       <input
+        name={name}
         defaultValue={defaultValue}
         ref={inputRef}
         {...rest}
