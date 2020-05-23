@@ -171,7 +171,7 @@ const Dashboard: React.FC = () => {
             <span>{selectedWeekDay}</span>
           </p>
 
-          {isToday(selectedDate) && nextAppointment && (
+          {!isToday(selectedDate) && nextAppointment && (
             <NextAppointment>
               <strong>Atendendimento a seguir</strong>
 

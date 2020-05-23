@@ -13,6 +13,28 @@ const appearFromBottom = keyframes`
   }
 `;
 
+const animateScale = keyframes`
+  from {
+    opacity: 0;
+    transform: scale(.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+`;
+
+const fadeBottom = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
 export const Container = styled.div``;
 
 export const Header = styled.header`
@@ -29,6 +51,10 @@ export const HeaderContent = styled.div`
 
   > img {
     height: 80px;
+
+    @media screen and (max-width: 560px) {
+      height: 60px;
+    }
   }
 
   > button {
@@ -40,6 +66,10 @@ export const HeaderContent = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media screen and (max-width: 560px) {
+      margin-left: 24px;
+    }
 
     svg {
       color: #999591;
@@ -61,10 +91,19 @@ export const ProfileLink = styled(Link)`
     opacity: 0.8;
   }
 
+  @media screen and (max-width: 560px) {
+    margin-left: auto;
+  }
+
   > img {
     width: 56px;
     height: 56px;
     border-radius: 50%;
+
+    @media screen and (max-width: 560px) {
+      width: 48px;
+      height: 48px;
+    }
   }
 
   > div {
@@ -72,6 +111,10 @@ export const ProfileLink = styled(Link)`
 
     display: flex;
     flex-direction: column;
+
+    @media screen and (max-width: 560px) {
+      display: none;
+    }
 
     span {
       color: #f4ede8;
@@ -90,12 +133,33 @@ export const Content = styled.main`
   animation: ${appearFromBottom} 1s;
 
   display: flex;
+
+  @media screen and (max-width: 860px) {
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: 460px) {
+    padding: 0px;
+  }
 `;
 
 export const Schedule = styled.section`
   margin-right: 120px;
 
   flex: 1;
+
+  @media screen and (max-width: 980px) {
+    margin-right: 32px;
+  }
+
+  @media screen and (max-width: 860px) {
+    margin-right: 0;
+    order: 2;
+  }
+
+  @media screen and (max-width: 460px) {
+    padding: 0 16px 64px 16px;
+  }
 
   h1 {
     font-size: 36px;
@@ -121,6 +185,7 @@ export const NextAppointment = styled.div`
   }
 
   div {
+    animation: ${fadeBottom} 1s;
     background: #3e3b47;
     display: flex;
     align-items: center;
@@ -133,7 +198,7 @@ export const NextAppointment = styled.div`
       content: '';
       display: block;
       position: absolute;
-      height: 80px;
+      height: 80%;
       width: 2px;
       left: 0;
       background: #ff9000;
@@ -144,6 +209,11 @@ export const NextAppointment = styled.div`
       width: 80px;
       height: 80px;
       border-radius: 50%;
+
+      @media screen and (max-width: 460px) {
+        width: 48px;
+        height: 48px;
+      }
     }
 
     strong {
@@ -151,6 +221,10 @@ export const NextAppointment = styled.div`
       color: #f4ede8;
       font-size: 24px;
       line-height: 32px;
+
+      @media screen and (max-width: 460px) {
+        font-size: 16px;
+      }
     }
 
     time {
@@ -186,12 +260,23 @@ export const Section = styled.section`
 
   > p {
     color: #999591;
+    animation: ${fadeBottom} 0.6s;
   }
 `;
 
 export const Appointment = styled.div`
   display: flex;
   align-items: center;
+
+  animation: ${animateScale} 1s;
+
+  @media screen and (max-width: 460px) {
+    flex-direction: column;
+    background: #3e3b47;
+    align-items: flex-start;
+    padding: 16px;
+    border-radius: 10px;
+  }
 
   & + div {
     margin-top: 16px;
@@ -223,6 +308,12 @@ export const Appointment = styled.div`
     display: flex;
     align-items: center;
 
+    @media screen and (max-width: 460px) {
+      margin-left: 0px;
+      padding: 0px;
+      margin-top: 16px;
+    }
+
     img {
       width: 56px;
       height: 56px;
@@ -233,6 +324,10 @@ export const Appointment = styled.div`
       margin-left: 16px;
       color: #f4ede8;
       font-size: 20px;
+
+      @media screen and (max-width: 460px) {
+        font-size: 16px;
+      }
     }
   }
 `;
@@ -240,9 +335,27 @@ export const Appointment = styled.div`
 export const Calendar = styled.aside`
   width: 360px;
 
+  @media screen and (max-width: 980px) {
+    width: 320px;
+  }
+
+  @media screen and (max-width: 860px) {
+    order: 1;
+    margin-bottom: 64px;
+  }
+
+  @media screen and (max-width: 460px) {
+    width: 100%;
+  }
+
   .DayPicker {
     background: #28262e;
     border-radius: 10px;
+
+    @media screen and (max-width: 460px) {
+      border-radius: 0;
+      background: #28262e;
+    }
   }
 
   .DayPicker-wrapper {
