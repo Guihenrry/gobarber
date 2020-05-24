@@ -22,5 +22,31 @@
   <img alt="Mockup" src=".github/mockup.png" width="700px" />
 </p>
 
+# :pushpin: Índice
+
+- [Funcionalidades](#rocket-funcionalidades)
+- [Como utilizar](#construction_worker-como-utilizar)
+
+# :rocket: Funcionalidades
+
+- 🔒 Autenticação, Cadastro e recuperação de senha
+- 👤 Edição dos dados do perfil
+- ✔ agendar serviço com um barbeiro
+- 💈 Listar agendamentos em um dia especifico
+
+
+# :construction_worker: Como utilizar
+
+Primeiro passo é clonar esse repositorio
+
+```bash
+git clone https://github.com/Guihenrry/gobarber.git
+```
+
+Este repositorio contém aplicação completa backend, web e mobile. Por isso separei o processo de instalação para cada ambiente. 
+
+- [backend](https://github.com/Guihenrry/gobarber/blob/master/backend/README.md)
+- [web](https://github.com/Guihenrry/gobarber/blob/master/web/README.md)
+- [mobile](https://github.com/Guihenrry/fastfeet/blob/master/mobile/README.md)
 
 Feito com 🧡 by [Gui Henrry](https://www.linkedin.com/in/guilhermehenrry/) ✌
