@@ -53,4 +53,6 @@ Este repositorio contém aplicação completa backend, web e mobile. Por isso se
 ## :memo: License
 Licensed under the [MIT Licence](https://github.com/Guihenrry/gobarber/blob/master/LICENSE)
 
+---
+
 Feito com 🧡 by [Gui Henrry](https://www.linkedin.com/in/guilhermehenrry/) ✌
