@@ -51,6 +51,6 @@ Este repositorio contém aplicação completa backend, web e mobile. Por isso se
 - [mobile](https://github.com/Guihenrry/fastfeet/blob/master/mobile/README.md)
 
 ## :memo: License
-Licensed under the [MIT Licence](LICENCE)
+Licensed under the [MIT Licence](https://github.com/Guihenrry/gobarber/blob/master/LICENSE)
 
 Feito com 🧡 by [Gui Henrry](https://www.linkedin.com/in/guilhermehenrry/) ✌
