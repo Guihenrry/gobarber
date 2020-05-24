@@ -16,3 +16,7 @@
 
   <img alt="License" src="https://img.shields.io/badge/licence-MIT-%23FF9000">
 </p>
+
+<img alt="Mockup" src=".github/mockup.png" />
+
+Feito com 🧡 by [Gui Henrry](https://www.linkedin.com/in/guilhermehenrry/) ✌
