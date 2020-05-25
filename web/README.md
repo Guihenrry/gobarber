@@ -45,7 +45,7 @@ Algumas tecnologias e ferramentas utilizadas.
 
 # :construction_worker: Como utilizar
 
-**OBS:** Para utilizar este projeto será necessário que a API esteja em execução.
+**OBS:** Para utilizar este projeto será necessário que a [API](https://github.com/Guihenrry/gobarber/tree/master/backend) esteja em execução.
 
 ```bash
 # Instalar as dependencias

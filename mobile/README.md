@@ -41,7 +41,7 @@ Algumas tecnologias e ferramentas utilizadas.
 
 Para testar esta aplicação você precisará utilizar um emulador ou execultar em seu dispositivos fisico. [Tutorial para configurar ambiente react native](https://react-native.rocketseat.dev/)
 
-**OBS:** Para utilizar este projeto será necessário que a API esteja em execução.
+**OBS:** Para utilizar este projeto será necessário que a [API](https://github.com/Guihenrry/gobarber/tree/master/backend) esteja em execução.
 
 ```bash
 # Instalar dependencias

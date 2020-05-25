@@ -46,9 +46,9 @@ git clone https://github.com/Guihenrry/gobarber.git
 
 Este repositorio contém aplicação completa backend, web e mobile. Por isso separei o processo de instalação para cada ambiente. 
 
-- [backend](https://github.com/Guihenrry/gobarber/blob/master/backend/README.md)
+- [backend](https://github.com/Guihenrry/gobarber/blob/master/backend/README.MD)
 - [web](https://github.com/Guihenrry/gobarber/blob/master/web/README.md)
-- [mobile](https://github.com/Guihenrry/fastfeet/blob/master/mobile/README.md)
+- [mobile](https://github.com/Guihenrry/gobarber/blob/master/mobile/README.md)
 
 ## :memo: License
 Licensed under the [MIT Licence](https://github.com/Guihenrry/gobarber/blob/master/LICENSE)
