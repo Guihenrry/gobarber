@@ -51,7 +51,7 @@ Este repositorio contém aplicação completa backend, web e mobile. Por isso se
 - [mobile](https://github.com/Guihenrry/gobarber/blob/master/mobile/README.md)
 
 ## :memo: Licença
-Este projeto está sobre a [licença MIT.](https://github.com/Guihenrry/gobarber/blob/master/LICENSE).
+Este projeto está sobre a [licença MIT](https://github.com/Guihenrry/gobarber/blob/master/LICENSE).
 
 ---
 
