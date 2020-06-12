@@ -7,6 +7,7 @@ import {
   Container,
   Header,
   HeaderTitle,
+  SignOutButton,
   UserName,
   ProfileButton,
   UserAvatar,
@@ -66,6 +67,10 @@ const Dashboard: React.FC = () => {
           Bem vindo,{'\n'}
           <UserName>{user.name}</UserName>
         </HeaderTitle>
+
+        <SignOutButton onPress={signOut}>
+          <Icon name="power" size={24} color="#999591" />
+        </SignOutButton>
 
         <ProfileButton onPress={navigateToProfile}>
           <UserAvatar source={{ uri: user.avatar_url }} />

@@ -16,6 +16,10 @@
   <img alt="License" src="https://img.shields.io/badge/licence-MIT-%23FF9000">
 </p>
 
+<p align="center">
+  <img alt="Mockup" src="../.github/mobile-demo.gif" width="250px" />
+</p>
+
 # :pushpin: Índice
 
 - [Sobre o projeto](#information_source-sobre-o-projeto)
