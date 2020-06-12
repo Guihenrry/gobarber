@@ -31,7 +31,7 @@ export interface Provider {
 }
 
 const Dashboard: React.FC = () => {
-  const { user } = useAuth();
+  const { user, signOut } = useAuth();
   const { navigate } = useNavigation();
 
   const [providers, setProviders] = useState<Provider[]>([]);
@@ -43,9 +43,10 @@ const Dashboard: React.FC = () => {
         setProviders(response.data);
       })
       .catch(() => {
+        signOut();
         Alert.alert('Ops algo deu errado', 'Não conseguimos buscar os dados.');
       });
-  }, []);
+  }, [signOut]);
 
   const navigateToProfile = useCallback(() => {
     navigate('Profile');
