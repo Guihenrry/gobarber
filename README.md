@@ -26,7 +26,7 @@
 
 - [Funcionalidades](#rocket-funcionalidades)
 - [Como utilizar](#construction_worker-como-utilizar)
-- [License](#memo-license)
+- [Licença](#memo-licença)
 
 # :rocket: Funcionalidades
 
@@ -50,8 +50,8 @@ Este repositorio contém aplicação completa backend, web e mobile. Por isso se
 - [web](https://github.com/Guihenrry/gobarber/blob/master/web/README.md)
 - [mobile](https://github.com/Guihenrry/gobarber/blob/master/mobile/README.md)
 
-## :memo: License
-Licensed under the [MIT Licence](https://github.com/Guihenrry/gobarber/blob/master/LICENSE)
+## :memo: Licença
+Este projeto está sobre a [licença MIT](https://github.com/Guihenrry/gobarber/blob/master/LICENSE).
 
 ---
 
