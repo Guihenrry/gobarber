@@ -30,12 +30,9 @@ export const Container = styled.div<ContainerProps>`
     padding: 16px 40px 16px 16px;
     background: #232129;
     border-radius: 10px;
-    border: 2px solid #232129;
     color: #f4ede8;
-
-    &:focus {
-      border-color: #ff9000;
-    }
+    border: 2px solid;
+    border-color: ${(props) => (props.isFocused ? '#ff9000' : '#232129')};
 
     &::placeholder {
       color: #666360;
