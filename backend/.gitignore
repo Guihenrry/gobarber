@@ -9,4 +9,4 @@ ormconfig.json
 tmp/*
 !tmp/.gitkeep
 
-/coverage
+coverage
