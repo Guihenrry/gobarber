@@ -40,7 +40,7 @@ describe('ListProviders', () => {
       user_id: loggedUser.id,
     });
 
-    expect(users).toEqual([user1, user2]);
+    expect(users).toEqual([{ ...user1 }, { ...user2 }]);
   });
 
   it('should be able cache the list the providers', async () => {
@@ -69,7 +69,9 @@ describe('ListProviders', () => {
       user_id: loggedUser.id,
     });
 
-    expect(users).toEqual([user1]);
+    expect(users).toEqual([
+      { ...user1, avatar_url: null, password: undefined },
+    ]);
     expect(findAllProviders).toHaveBeenCalledTimes(1);
   });
 });
